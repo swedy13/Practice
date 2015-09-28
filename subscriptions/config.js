@@ -1,8 +1,10 @@
+//DO NOT COPY THIS, >< thanks!
+
 module.exports = {
   twitter: {
-    consumer_key: 'wweGrj6S0khRXJS2BGcwfVeKL',
-    consumer_secret: 'alZKqfOdyRq8hQGFYA7JIQc1NstH4zj5y0E2uvoQQUlPtNW0hr',
-    access_token_key: '19272487-YOa3NL9dWNNk469oq3OkmQqxTz5ThbThm9PfQR31z',
-    access_token_secret: 'ElsG88UOyKuELqIfVToS1kMYmvy58luMbRbxNpG98FoeJ'
+    consumer_key: 'FE8XwYAu7lKcbCRcJ9Ez4zyPo',
+    consumer_secret: '0U2hofak9B7v9kbFSBPU6pwsBN6EMrsTedBlEYnSnilcy9DqOZ',
+    access_token_key: '985869984-sHEoce5PxC3ta0vuhkdtEn0LpY0NaleIJ2ZeHaDs',
+    access_token_secret: '1c7BhgSwADWAmefu71aYC1G6Dav35OWlDsy7hUvBhzKca'
   }
 }

@@ -1,55 +1,53 @@
-import express				from 'express';
-import mongoose				from 'mongoose';
-import twitter				from 'twitter';
-import connect				from 'connect';
-import routes					from './routes';
-import config					from './config';
-import streamHandler	from './utils/streamHandler'
+ // Server side main
+ let http = require('http')
+ let path = require('path')
+ let express = require('express')
+ let morgan = require('morgan')
+ let mongoose = require('mongoose')
+ let twitter = require('ntwitter')
+ let routes = require('./routes')
+ let config = require('./config')
+ let streamHandler = require('./utils/streamHandler')
+ require('hbs')
 
-/* var express			= require('express'),
-	 exphbs				= require('express-handlebars'),
-	 http					= require('http'),
-	 mongoose			= require('mongoose'),
-	 twitter				= require('twitter'),
-	 connect	      = require('connect'),
-	 routes				= require('./routes'),
-	 config				= require('./config'),
-	 streamHandler = require('./utils/streamHandler'); */
+ // Create an express instance and set a port variable
+ let app = express();
+ let port = process.env.PORT || 8080
 
-var app		= express();
-var port	= process.env.PORT || 8000;
+ //view engine and default layout
+ app.set('views', path.join(__dirname, 'views'))
+ app.set('view engine', 'hbs')
+ //layout would be used in routes/render
+ app.set('view options', {
+     layout: 'main'
+ })
 
+ // log every request to the console
+ app.use(morgan('dev'))
+ // Disable etag headers on responses
+ app.disable('etag')
 
-// Template Engine
-app.engine('handlebars', exphbs({ defaultLayout: 'main'}));
-app.set('view engine', 'handlebars');
-app.disable('etag');
+ // Connect to our mongo database
+ mongoose.connect('mongodb://localhost/react-tweets')
 
+ routes(app)
+ // Set /public as our static content dir
+ app.use("/", express.static(__dirname + "/public/"))
 
-// Database
-mongoose.connect('mongodb://localhost/react-tweets');
+ // Fire it up (start our server)
+ let server = http.createServer(app).listen(port, () => {
+     console.log(`Expresslisten to port ${port}`)
+ })
 
-var twit = new twitter(config.twitter);
+ // Initialize socket.io
+ let io = require('socket.io').listen(server)
 
-app.get('/', routes.index);
-app.get('/page/:page/:skip', routes.page);
-app.use('/', express.static(__dirname + '/public/'));
+ // Create a new ntwitter instance
+ let twit = new twitter(config.twitter)
 
-
-// Server
-var server = connect().use(connect.static(app).listen(port, function() {
-	console.log('Express server listening on port ' + port);
-}));
-
-// createServer deprecated, use connect instead
-/* var server = http.createServer(app).listen(port, function() {
-	 console.log('Express server listening on port ' + port);
-	 }); */
-
-var io = require('socket.io').listen(server);
-
-
-// Listner
-twit.stream('statuses/filter',{track: 'Javascript'}, function(stream){
-	streamHandler(stream,io);
-});
+ // Set a stream listener for tweets matching tracking keywords
+ twit.stream('statuses/filter', {
+     track: '#reactjs, BarackObama'
+ }, (stream) => {
+     streamHandler(stream, io)
+ })
