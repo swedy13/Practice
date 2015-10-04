@@ -1,0 +1,6 @@
+'use strict';
+import Subscriptions from './components/subscriptions.js';
+
+document.
+
+document.body.appendChild(Subscriptions());

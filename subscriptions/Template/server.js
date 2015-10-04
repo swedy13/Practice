@@ -12,7 +12,7 @@
 
  // Create an express instance and set a port variable
  let app = express();
- let port = process.env.PORT || 8080
+ let port = process.env.PORT || 8000;
 
  //view engine and default layout
  app.set('views', path.join(__dirname, 'views'))
@@ -36,7 +36,7 @@
 
  // Fire it up (start our server)
  let server = http.createServer(app).listen(port, () => {
-     console.log(`Expresslisten to port ${port}`)
+     console.log(`Express is listening to port ${port}`)
  })
 
  // Initialize socket.io

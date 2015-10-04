@@ -1,0 +1,45 @@
+{
+		"name": "Subscriptions",
+		"version": "1.0.1",
+		"description": "Mythros Prototype",
+		"main": "app.js",
+		"scripts": {
+				"watch": "watchify app.js -o public/js/bundle.js -v",
+				"browserify": "browserify app.js | uglifyjs > public/js/bundle.js",
+				"build": "npm run browserify ",
+				"start": "npm run watch & nodemon --exec babel-node -- --stage 1 --optional strict -- server.js",
+				"test": "echo \"Error: no test specified\" && exit 1"
+		},
+		"author": "Mark Swedberg",
+		"dependencies": {
+				"express": "~4.9.7",
+				"express-handlebars": "~1.1.0",
+				"express-then": "^1.0.3",
+				"hbs": "^3.1.0",
+				"mongoose": "^4.0.5",
+				"morgan": "^1.5.3",
+				"node-jsx": "~0.11.0",
+				"ntwitter": "^0.5.0",
+				"react": "^0.13.3",
+				"socket.io": "^1.1.0",
+				"songbird": "^1.0.1"
+		},
+		"devDependencies": {
+				"babel-runtime": "^5.5.8",
+				"babelify": "^6.1.2",
+				"nodemon": "^1.2.1",
+				"reactify": "~0.14.0",
+				"uglify-js": "~2.4.15",
+				"watchify": "~2.0.0"
+		},
+		"browserify": {
+				"transform": [
+						[
+								"babelify",
+								{
+										"stage": 0
+								}
+						]
+				]
+		}
+}
