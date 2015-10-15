@@ -1,1 +1,0 @@
-meteor add stolinskistylus-multi
