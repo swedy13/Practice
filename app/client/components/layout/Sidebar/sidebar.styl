@@ -1,0 +1,52 @@
+  #sidebar
+  user-select none
+  z-index 990
+  position absolute
+  display inline-block
+  top 30px
+  bottom 0
+  right 0
+  height calc(100% - 30px)
+  width 50px
+  background #555
+  border-left 1px solid #444
+  box-shadow -2px 0px 3px #333
+
+  
+// Button Positioning
+.sb-btn
+  cursor pointer
+  height 25px
+  margin-top 10px
+  padding-right 1px
+  text-align center
+
+  
+// Icon Styling
+.sb-ico
+  color #ccc
+  text-shadow 1px 1px 2px #222, -1px -1px 2px #222, 3px 3px 3px #333
+
+  &:active
+    font-size 1.9em
+
+  
+// Sliding Panel
+.sb-panel
+  user-select none
+  z-index 970
+  position absolute
+  top 0px
+  right 50px
+  height 100%
+  background-color #ddd
+  background #ddd
+  box-shadow -1px 0 12px #ccc, -2px 0 15px #111
+
+.sb-open
+  width 325px
+  transition width .25s ease-out
+
+.sb-closed
+  width 0px
+  transition width .25s ease-in

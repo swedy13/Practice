@@ -1,0 +1,42 @@
+#footer
+  z-index 980
+  position absolute
+  display inline-block
+  bottom 0
+  right 50px
+  width calc(100% - 50px)
+  background #ddd
+  box-shadow 0 -2px 1px #bbb
+
+
+// Button Positioning
+.footer-btn
+  cursor pointer
+  position absolute
+  bottom 2px
+  right 10px
+  width 30px
+
+
+// Icon Styling
+.footer-ico
+  padding-left 10px
+  color #ccc
+  text-shadow 1px 1px 2px #222, -1px -1px 2px #222, 3px 3px 3px #333
+
+  &:active
+    font-size 1.9em
+    margin-top 2px
+
+.fa-info:hover
+  color white
+
+
+// Sliding Menu
+.footer-open
+  height 25px
+  transition height .25s ease-out
+
+.footer-closed
+  height 0px
+  transition height .25s ease-in

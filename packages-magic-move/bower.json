@@ -1,0 +1,28 @@
+{
+  "name": "react-magic-move",
+  "version": "0.1.0",
+  "homepage": "https://github.com/rpflorence/react-magic-move",
+  "authors": [
+    "Ryan Florence"
+  ],
+  "description": "MagicMove for React.js",
+  "main": "dist/react-magic-move.js",
+  "keywords": [
+    "react",
+    "animation"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "specs",
+    "modules",
+    "examples",
+    "script",
+    "CONTRIBUTING.md",
+    "karma.conf.js",
+    "package.json",
+    "webpack.config.js"
+  ]
+}
