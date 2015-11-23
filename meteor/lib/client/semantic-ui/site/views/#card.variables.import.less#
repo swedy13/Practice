@@ -1,0 +1,10 @@
+/*******************************
+    User Variable Overrides
+*******************************/
+@boxShadow
+@contentBoxShadow
+@extraBoxShasow
+@linkHoverBoxShadow
+@borderShadow
+@coloredShadowDistance
+@shadowBoxShadow

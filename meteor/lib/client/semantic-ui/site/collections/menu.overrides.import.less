@@ -1,0 +1,58 @@
+/*******************************
+         Site Overrides
+*******************************/
+/*--------------
+      Item
+---------------*/
+.ui.menu .item {
+  position: relative;
+  vertical-align: middle;
+  line-height: 1;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+  flex: 0 0 auto;
+  user-select: none;
+  background: @itemBackground;
+  padding: 1px 0px;
+  text-transform: @itemTextTransform;
+  color: @itemTextColor;
+  font-weight: @itemFontWeight;
+  transition: @itemTransition;
+}
+
+
+/*--------------
+    Icon Only
+---------------*/
+/* Vertical Menu */
+.ui.vertical.icon.menu {
+  display: inline-block;
+  width: 50px;
+}
+
+
+/*--------------
+   Labeled Icon
+---------------*/
+/* Item */
+.ui.labeled.icon.menu  .item {
+		min-width: 50px;
+		max-width: 50px;
+		flex-direction: column;
+}
+
+/* Icon */
+.ui.labeled.icon.menu .item > .icon:not(.dropdown) {
+  height: 1em;
+  display: block;
+  font-size: @labeledIconSize !important;
+  margin: 5px auto !important;
+}
+
+/* Icon */
+.ui.labeled.icon.menu .item > .icon:not(.dropdown) {
+  height: 1em;
+  display: block;
+  font-size: @labeledIconSize !important;
+  margin: 5px auto !important;
+}
